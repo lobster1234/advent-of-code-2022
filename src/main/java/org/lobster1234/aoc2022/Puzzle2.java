@@ -6,6 +6,9 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * <a href="https://adventofcode.com/2022/day/2">Day 2</a>
+ */
 public class Puzzle2 {
 
     final int WIN = 6;
