@@ -45,4 +45,28 @@ public class Puzzle3Test extends TestCase {
         list.add("CrZsJsPPZsGzwwsLwLmpwMDw");
         assertEquals(new Puzzle3().getPrioritySum(list), 157);
     }
+
+    public void testFindCommon(){
+        List<String> list = new ArrayList<>();
+        list.add("vJrwpWtwJgWrhcsFMMfFFhFp");
+        list.add("jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL");
+        list.add("PmmdzqPrVvPwwTWBwg");
+        assertEquals(new Puzzle3().findCommon(list), 'r');
+        list.clear();
+        list.add("wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn");
+        list.add("ttgJtRGJQctTZtZT");
+        list.add("CrZsJsPPZsGzwwsLwLmpwMDw");
+        assertEquals(new Puzzle3().findCommon(list), 'Z');
+    }
+
+    public void testBadgeSum(){
+        List<String> list = new ArrayList<>();
+        list.add("vJrwpWtwJgWrhcsFMMfFFhFp");
+        list.add("jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL");
+        list.add("PmmdzqPrVvPwwTWBwg");
+        list.add("wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn");
+        list.add("ttgJtRGJQctTZtZT");
+        list.add("CrZsJsPPZsGzwwsLwLmpwMDw");
+        assertEquals(new Puzzle3().getBadgeSum(list), 70);
+    }
 }
