@@ -1,8 +1,6 @@
 package org.lobster1234.aoc2022;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
 
 /**
  * <a href="https://adventofcode.com/2022/day/5">Day 5</a>
@@ -37,7 +35,7 @@ public class Puzzle5 {
         //next we read the moves from the file
         List<String> input = Utils.readFile("puzzle5_input.txt");
         List<MoveOperation> moves = p.parseMoveOperations(input);
-        p.perform(moves);
+        p.perform9001(moves);
         System.out.println("Top of the stacks string is " + p.topsOfStacks());
     }
 
@@ -79,6 +77,19 @@ public class Puzzle5 {
         });
     }
 
+    public void perform9001(List<MoveOperation> operations){
+        operations.forEach(operation -> {
+            Stack<Character> source = supplyStacks.get(operation.from()-1);
+            Stack<Character> destination = supplyStacks.get(operation.to()-1);
+            Deque<Character> deq = new ArrayDeque<>();
+            for(int i=0;i<operation.count();i++){
+                deq.addFirst(source.pop());
+            }
+            while(!deq.isEmpty()){
+                destination.push(deq.removeFirst());
+            }
+        });
+    }
     public String topsOfStacks(){
         StringBuilder sb = new StringBuilder();
         supplyStacks.forEach(s -> sb.append(s.peek()));

@@ -41,4 +41,20 @@ public class Puzzle5Test extends TestCase {
         assertEquals(p.topsOfStacks(), "CMZ");
     }
 
+    public void testMoveOperationsFor9001(){
+        List<MoveOperation> ops = new ArrayList<>();
+        MoveOperation op1 = new MoveOperation(1,2,1);
+        MoveOperation op2 = new MoveOperation(3,1,3);
+        MoveOperation op3 = new MoveOperation(2,2,1);
+        MoveOperation op4 = new MoveOperation(1,1,2);
+        ops.add(op1);
+        ops.add(op2);
+        ops.add(op3);
+        ops.add(op4);
+        p.perform9001(ops);
+        assertEquals((char) p.getSupplyStacks().get(0).peek(),'M');
+        assertEquals((char) p.getSupplyStacks().get(1).peek(),'C');
+        assertEquals((char) p.getSupplyStacks().get(2).peek(),'D');
+        assertEquals(p.topsOfStacks(), "MCD");
+    }
 }
