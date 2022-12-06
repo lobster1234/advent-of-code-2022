@@ -1,8 +1,5 @@
 package org.lobster1234.aoc2022;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
 import java.util.*;
 
 /**
@@ -11,19 +8,11 @@ import java.util.*;
 public class Puzzle3 {
 
     public static void main(String[] args) {
-        List<String> list = new Puzzle3().readFile("puzzle3_input.txt");
+        List<String> list = Utils.readFile("puzzle3_input.txt");
         System.out.println("Priority sum is " + new Puzzle3().getPrioritySum(list));
         System.out.println("Badge sum is " + new Puzzle3().getBadgeSum(list));
     }
 
-    public List<String> readFile(String file){
-        try(BufferedReader reader = new BufferedReader(new FileReader(new File(this.getClass().getClassLoader().getResource(file).toURI())))){
-            return reader.lines().toList();
-        }catch(Exception e){
-            System.out.println("Exception " + e.getMessage());
-            return List.of();
-        }
-    }
 
     public int getPrioritySum(List<String> strings){
         int sum = 0;
@@ -51,8 +40,6 @@ public class Puzzle3 {
         }
         return sum;
     }
-
-
 
     public char findCommon(List<String> strings){
         Set<Character> set1 = new HashSet<>();
