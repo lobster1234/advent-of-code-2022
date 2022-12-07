@@ -10,15 +10,16 @@ public class Puzzle6 {
 
     public static void main(String[] args) {
         String input = Utils.readFile("puzzle6_input.txt").get(0);
-        System.out.println(new Puzzle6().findMarker(input,4));
+        System.out.println("Part 1: " + Puzzle6.findMarker(input,4));
+        System.out.println("Part 2: " + Puzzle6.findMarker(input,14));
     }
 
-    public int findMarker(String buffer, int size){
+    public static int findMarker(String buffer, int size){
         for(int i=0;i<buffer.length()-size;i++){
             String sub = buffer.substring(i, i+size);
             Set<Character> set = new HashSet<>();
             sub.chars().forEach( c -> set.add((char) c));
-            if(set.size()==4) return i+size;
+            if(set.size()==size) return i+size;
         }
         return -1;
     }
